@@ -1,8 +1,20 @@
 import React from 'react';
+import { motion } from 'motion/react';
+import { useInView } from 'react-intersection-observer';
 
 function Footer() {
+
+    const { ref, inView } = useInView ({
+        triggerOnce:false,
+        threshold:0,
+      })
+    
     return (
-        <footer className="bg-gray-900 font-[Poppins] text-gray-300 py-10 mt-20">
+        <motion.footer className="bg-gray-900 font-[Poppins] shadow-[0px_0px_20px_rgba(16,24,40,0.9)] text-gray-300 py-10 mt-20"
+        ref= {ref}
+    initial = {{opacity:0, scale:0.85}}
+    animate = {inView ? { opacity:1, scale:1 } : {}}
+    transition={{duration:1, ease:'anticipate'}}>
             <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
 
                 {/* About Section */}
@@ -40,7 +52,7 @@ function Footer() {
             </div>
 
             <div>
-              <div className='mt-12 font-bold text-gray-300 text-3xl mx-auto text-center'>Meet Our Team :)</div>
+              <div className='mt-12 font-bold text-gray-300 text-3xl mx-auto text-center pt-30 '>Meet Our Team :)</div>
               <div className='flex mt-12 font-bold max-w-[1080px] mx-auto justify-around'>
                 <p1> Mohit Goswami </p1>
                 <p1> Arpit Bansal </p1>
@@ -53,7 +65,7 @@ function Footer() {
             <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
                 &copy; {new Date().getFullYear()} Money Mentor AI. All rights reserved.
             </div>
-        </footer>
+        </motion.footer>
     );
 }
 

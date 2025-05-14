@@ -1,12 +1,24 @@
 import React from "react";
+import { motion } from 'motion/react';
+import { useInView } from 'react-intersection-observer';
 
 function HeroSection() {
+
+  const { ref, inView } = useInView ({
+    triggerOnce:false,
+    threshold:0,
+  })
+ 
   return (
-    <div
-      className='w-[1080px] font-[Poppins] mx-auto bg-[url("https://media.istockphoto.com/id/2030192156/photo/global-data-flow-and-connectivity-east-asia.webp?b=1&s=612x612&w=0&k=20&c=igZA6fE1A6qq0jyHDRUAxtbuHeQu2pqiRTdr4t2BPfI=")]
-    bg-no-repeat bg-cover  opacity-[80%] border-b-[0.5px] border-[#374151]'
+    <motion.div 
+    ref= {ref}
+    initial = {{opacity:0, scale:0.85}}
+    animate = {inView ? { opacity:1, scale:1 } : {}}
+    transition={{duration:1, ease:'anticipate'}}
+    className='w-[1080px] font-[Poppins] mx-auto rounded-2xl
+      opacity-[80%] border-b-[0.5px] border-[#374151] pb-10'
     >
-      <div className="bg-[rgba(0,0,0,0.5)] px-4 h-[100%] font-[Poppins] flex items-center justify-center flex-col mt-4">
+      <div className="bg-[rgba(0,0,0,0.5)] rounded-2xl px-4 h-[100%] font-[Poppins] flex items-center justify-center flex-col mt-4">
         <h1 className=" mt-4 pt-32 text-center text-6xl text-[#ffffff] font-bold">
           Your AI-Powered Financial Guide
         </h1>
@@ -15,44 +27,46 @@ function HeroSection() {
           and achieve financial independence.
         </h3>
         <div className="mt-8">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-3 gap-8 mt-12">
-              <div class="bg-white/10 hover:shadow-[inset_0px_0px_6px_white] backdrop-blur-md border border-white/20 shadow-sm hover:shadow-blue-500  rounded-2xl p-6  hover:border-blue-500 transition">
-                <div class="text-4xl mb-4">📈</div>
-                <h3 class="text-xl font-bold text-[#F3F4F6] mb-2">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-3 gap-8 mt-12">
+              <div className="bg-white/10 hover:shadow-[inset_0px_0px_6px_white] backdrop-blur-md border border-white/20 shadow-sm hover:shadow-blue-500  rounded-2xl p-6  hover:border-blue-500 transition">
+                <div className="text-4xl mb-4">📈</div>
+                <h3 className="text-xl font-bold text-[#F3F4F6] mb-2">
                   Stay Updated
                 </h3>
-                <p class="text-[#9CA3AF] text-sm">
+                <p className="text-[#9CA3AF] text-sm">
                   Get real-time financial news updates
                   <br />
-                  <span class="text-[#3B82F6] font-semibold">200+ News</span>
+                  <span className="text-[#3B82F6] font-semibold">200+ News</span>
                 </p>
               </div>
 
-              <div class="bg-white/10 hover:shadow-[inset_0px_0px_6px_white] backdrop-blur-md rounded-2xl p-6 border border-[#374151] shadow-sm hover:shadow-indigo-400 hover:border-indigo-400 transition">
-                <div class="text-4xl mb-4">🧠</div>
-                <h3 class="text-xl font-bold text-[#F3F4F6] mb-2">
+              <div className="bg-white/10 hover:shadow-[inset_0px_0px_6px_white] backdrop-blur-md rounded-2xl p-6 border border-[#374151] shadow-sm hover:shadow-indigo-400 hover:border-indigo-400 transition">
+                <div className="text-4xl mb-4">🧠</div>
+                <motion.h3 className="text-xl font-bold
+                 text-[#F3F4F6] mb-2"
+                 >
                   AI-Powered Analysis
-                </h3>
-                <p class="text-[#9CA3AF] text-sm">
+                </motion.h3>
+                <p className="text-[#9CA3AF] text-sm">
                   Smart insights for smarter decisions
                   <br />
-                  <span class="text-[#10B981] font-semibold">
+                  <span className="text-[#10B981] font-semibold">
                     Great Accuracy
                   </span>
                 </p>
               </div>
 
-              <div class="bg-white/10 backdrop-blur-md hover:shadow-[inset_0px_0px_6px_white] rounded-2xl p-6 border border-[#374151] shadow-sm hover:shadow-purple-400 hover:border-purple-400 transition">
-                <div class="text-4xl mb-4">🔒</div>
-                <h3 class="text-xl font-bold text-[#F3F4F6] mb-2">
+              <div className="bg-white/10 backdrop-blur-md hover:shadow-[inset_0px_0px_6px_white] rounded-2xl p-6 border border-[#374151] shadow-sm hover:shadow-purple-400 hover:border-purple-400 transition">
+                <div className="text-4xl mb-4">🔒</div>
+                <h3 className="text-xl font-bold text-[#F3F4F6] mb-2">
                   {" "}
                   Secure & Private
                 </h3>
-                <p class="text-[#9CA3AF] text-sm">
+                <p className="text-[#9CA3AF] text-sm">
                   Secure login and Authentication System
                   <br />
-                  <span class="text-[#8B5CF6] font-semibold">
+                  <span className="text-[#8B5CF6] font-semibold">
                     100% encrypted
                   </span>
                 </p>
@@ -75,7 +89,7 @@ function HeroSection() {
       </div>
 
 
-    </div>
+    </motion.div>
   );
 }
 

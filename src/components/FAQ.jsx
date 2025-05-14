@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
+import { useInView } from 'react-intersection-observer';
 
 function FAQSection() {
    
@@ -37,8 +39,17 @@ function FAQSection() {
         setActive(newArray);
     }
 
+    const { ref, inView } = useInView ({
+    triggerOnce:false,
+    threshold:0,
+  })
+
     return (
-        <section className='max-w-[1080px] mx-auto font-[Poppins] text-[#F3F4F6]'>
+        <motion.section className='max-w-[1080px] mx-auto font-[Poppins] text-[#F3F4F6]'
+        ref= {ref}
+    initial = {{opacity:0, scale:0.85}}
+    animate = {inView ? { opacity:1, scale:1 } : {}}
+    transition={{duration:1.25, ease:'anticipate'}}>
             <div className='h-2 w-full border-b-[0.5px] border-b-[#374151]'></div>
             <h1 className='mt-10 text-center font-bold text-3xl'>FAQ'S</h1>
 
@@ -61,7 +72,7 @@ function FAQSection() {
                 ))
             }
             </div>
-        </section>
+        </motion.section>
     );
 }
 

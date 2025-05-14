@@ -1,8 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { motion } from 'motion/react';
+import { useInView } from 'react-intersection-observer';
 
 function Work() {
+
+  const { ref, inView } = useInView ({
+    triggerOnce:false,
+    threshold:0,
+  })
+
   return (
-    <section className="py-16 max-w-[1080px] font-[Poppins] mx-auto text-[#E6EDF3]">
+    <motion.section 
+    ref= {ref}
+    initial = {{opacity:0, scale:0.85}}
+    animate = {inView ? { opacity:1, scale:1 } : {}}
+    transition={{duration:1, ease:'anticipate'}}className="py-16 mt-40 max-w-[1080px] font-[Poppins] mx-auto text-[#E6EDF3]">
        <div className='h-2 w-full border-b-[0.5px] border-b-[#374151]'></div>
       <div className="max-w-6xl mx-auto px-4  mt-12">
         
@@ -79,7 +91,7 @@ function Work() {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   )
 }
 
