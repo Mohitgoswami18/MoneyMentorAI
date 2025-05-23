@@ -22,7 +22,7 @@ const Chatbot = () => {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `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`, // replace this
+           
           },
         }
       );
