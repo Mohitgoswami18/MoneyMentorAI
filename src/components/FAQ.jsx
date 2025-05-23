@@ -7,7 +7,7 @@ function FAQSection() {
     const faqs = [
         {
             question: 'What is Money Mentor AI?',
-            answer: 'Money Mentor AI is an intelligent platform that helps you set and achieve your financial goals with personalized advice and tracking.'
+            answer: 'Money Mentor AI is an intelligent platform that helps you achieve your financial goals with Personalised guide and mentoring'
         },
         {
             question: 'How does Money Mentor AI work?',
@@ -15,15 +15,11 @@ function FAQSection() {
         },
         {
             question: 'Is my data secure on this platform?',
-            answer: 'Yes, we prioritize your privacy. We use the latest encryption methods to ensure your data is safe and secure.'
-        },
-        {
-            question: 'Can I connect my bank account to track expenses?',
-            answer: 'Yes, Money Mentor AI allows you to link your bank account securely for automated expense tracking and goal setting.'
+            answer: 'Yes, we prioritize your privacy. We used the https: which is secure.'
         },
         {
             question: 'Is the platform free to use?',
-            answer: 'Money Mentor AI offers a free version with basic features, and a premium version with advanced features and personalized recommendations.'
+            answer: 'Money Mentor AI offers a free version with basic features, News and an chatbot for your assistance.'
         }
     ];
 

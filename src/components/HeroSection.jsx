@@ -1,11 +1,12 @@
 import React from "react";
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 
 function HeroSection() {
 
   const { ref, inView } = useInView ({
-    triggerOnce:false,
+    triggerOnce:true,
     threshold:0,
   })
  
@@ -14,8 +15,8 @@ function HeroSection() {
     ref= {ref}
     initial = {{opacity:0, scale:0.85}}
     animate = {inView ? { opacity:1, scale:1 } : {}}
-    transition={{duration:1, ease:'anticipate'}}
-    className='w-[1080px] font-[Poppins] mx-auto rounded-2xl
+    transition={{duration:0.5,delay:2, ease:'easeInOut'}}
+    className='w-[1020px] font-[Poppins] mx-auto rounded-2xl
       opacity-[80%] border-b-[0.5px] border-[#374151] pb-10'
     >
       <div className="bg-[rgba(0,0,0,0.5)] rounded-2xl px-4 h-[100%] font-[Poppins] flex items-center justify-center flex-col mt-4">
@@ -77,9 +78,11 @@ function HeroSection() {
           <div className="mt-10 px-22 py-8">
             <p className=" text-2xl font-bold  text-[#E6EDF3]">"Take control of your financial future with the power of AI. Stay informed, make smarter decisions, and unlock new opportunities — all in one place."</p>
           <div className="flex items-center justify-center mt-10">
-          <button className="ring-2 ring-[#9cafce] text-[#E6EDF3] transition-transform hover:scale-110 m-4 bg-[#3B82F6] px-12 py-3 rounded-2xl cursor-pointer text-center font-bold items-center text-base">
+          <Link
+          to={'./Login'}
+          className="ring-2 ring-[#9cafce] text-[#E6EDF3] transition-transform hover:scale-110 m-4 bg-[#3B82F6] px-12 py-3 rounded-2xl cursor-pointer text-center font-bold items-center text-base">
             Get Started
-          </button>
+          </Link>
           <button className="ring-2 ring-[#9cafce] text-[#E6EDF3] transition-transform hover:scale-110 m-4 bg-[#3B82F6] px-12 py-3 rounded-2xl cursor-pointer text-center font-bold items-center text-base">
             market News
           </button>
