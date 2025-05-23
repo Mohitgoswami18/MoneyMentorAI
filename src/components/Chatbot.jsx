@@ -4,36 +4,6 @@ import axios from 'axios';
 const Chatbot = () => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
-
-  const sendMessage = async () => {
-    if (!input.trim()) return;
-
-    const userMessage = { role: 'user', content: input };
-    setMessages([...messages, userMessage]);
-    setInput('');
-
-    try {
-      const response = await axios.post(
-        
-        {
-          model: 'gpt-3.5-turbo',
-          messages: [...messages, userMessage],
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-           
-          },
-        }
-      );
-
-      const botMessage = response.data.choices[0].message;
-      setMessages([...messages, userMessage, botMessage]);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
-
   return (
     <div className="chatbox relative font-[Poppins] px-1 py-2">
       <div className="chat-messages" style={{ height: '300px', overflowY: 'auto' }}>
