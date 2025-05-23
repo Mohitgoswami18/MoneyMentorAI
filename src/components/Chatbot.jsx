@@ -1,32 +1,3 @@
-// import React from 'react'
-// import { useState } from 'react';
-// // import { axios } from 'axios';
-
-// function Chatbot() {
-
-//   const [text, setText] = useState('');
-//   console.log(text);
-
-//   return (
-//     <div className='relative'>
-//       <div className='text-sm text-center pt-2'>Hello ...! Welcome to Money Mentor AI</div>
-//         <div className='fixed bottom-12 right-12  '>
-//             <input type="text"
-//             className='bg-blue-300 w-[350px] px-2 py-2 rounded-2xl' 
-//             placeholder='Enter your prompt here'
-//             value={text}
-//             onChange={(e)=>setText(e.target.value)}
-//         />
-
-//         <i class="fa-solid fa-arrow-up-from-bracket fixed bottom-15 right-15" 
-//         ></i>
-//         </div>
-//     </div>
-//   )
-// }
-
-// export default Chatbot
-
 import React, { useState } from 'react';
 import axios from 'axios';
 

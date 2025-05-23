@@ -90,8 +90,6 @@ function HeroSection() {
           </div>
         </div>
       </div>
-
-
     </motion.div>
   );
 }
