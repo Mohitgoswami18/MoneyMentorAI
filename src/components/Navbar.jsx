@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import {  motion, transform } from 'motion/react';
+import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import MMLogo from '../assets/icons/MMLogo.png'
 import { getAuth, signOut } from 'firebase/auth';
-import { div } from 'motion/react-client';
 
 const scroll = ( ref ) => {
   ref.current.scrollIntoView({behavior:'smooth'});

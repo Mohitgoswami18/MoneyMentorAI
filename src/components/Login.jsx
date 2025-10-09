@@ -2,7 +2,7 @@ import React from 'react';
 import Signin from './Signin';
 import Signup from './Signup';
 import { Routes, NavLink, Route } from 'react-router-dom';
-import { motion } from 'motion/react'
+import { motion } from "framer-motion";
 import {useInView} from 'react-intersection-observer'
 import MMLogo from '../assets/icons/MMLogo.png'
 import { useState,useEffect } from 'react'
