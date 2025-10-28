@@ -79,7 +79,7 @@ function HeroSection() {
             <p className=" text-2xl font-bold  text-[#E6EDF3]">"Take control of your financial future with the power of AI. Stay informed, make smarter decisions, and unlock new opportunities — all in one place."</p>
           <div className="flex items-center justify-center mt-10">
           <Link
-          to={'./Login'}
+          to={'https://moneymentor-ai.streamlit.app/'}
           className="ring-2 ring-[#9cafce] text-[#E6EDF3] transition-transform hover:scale-110 m-4 bg-[#3B82F6] px-12 py-3 rounded-2xl cursor-pointer text-center font-bold items-center text-base">
             Get Started
           </Link>

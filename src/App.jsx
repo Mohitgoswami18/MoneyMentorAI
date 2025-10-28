@@ -7,8 +7,6 @@ import Footer from './components/Footer';
 import StatsSection from './components/Stats';
 import FAQSection from './components/FAQ';
 import { useRef, useState, useEffect } from 'react';
-import Login from './components/Login';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { motion } from "framer-motion";
 import { NavLink, Routes, Route } from 'react-router-dom';
 import Chatbot from './components/Chatbot';
@@ -16,16 +14,6 @@ import Chatbot from './components/Chatbot';
 
 function App() {
 
-  const [user, setUser] = useState(null);
-  const auth = getAuth();
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-    });
-
-    return () => unsubscribe();
-  }, []);
 
   const [mousePointer, setMousePointer] = useState({
     x:0,
@@ -75,7 +63,7 @@ function App() {
       <div className='' style={cursor}></div>
       <div className='bg-no-repeat bg-cover  bg-[url("https://media.istockphoto.com/id/2030192156/photo/global-data-flow-and-connectivity-east-asia.webp?b=1&s=612x612&w=0&k=20&c=igZA6fE1A6qq0jyHDRUAxtbuHeQu2pqiRTdr4t2BPfI=")]'>
         <div className=''>
-          <Navbar user = {user} homeRef={homeRef} workRef={workRef} aboutusRef={aboutusRef} featuresRef={featuresRef} faqRef={faqRef} /> 
+          <Navbar homeRef={homeRef} workRef={workRef} aboutusRef={aboutusRef} featuresRef={featuresRef} faqRef={faqRef} /> 
         </div>        
         <div id='homeRef' ref={homeRef}><HeroSection />
         </div>

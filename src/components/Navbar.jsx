@@ -3,24 +3,14 @@ import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import MMLogo from '../assets/icons/MMLogo.png'
-import { getAuth, signOut } from 'firebase/auth';
 
 const scroll = ( ref ) => {
   ref.current.scrollIntoView({behavior:'smooth'});
 }
 
-function Navbar( {homeRef, workRef, aboutusRef, featuresRef, faqRef, setLoggingIn, user} ) {
-
-  const auth = getAuth();
-
-  function eventHandler () {
-          signOut(auth)
-          .then(() => props.setUser(false));
-      }
+function Navbar( {homeRef, workRef, aboutusRef, featuresRef, faqRef} ) {
 
     const [isMoved, setIsMoved] = useState(false);
-    const [loggedIn, setLoggedIn] = useState(false);
-    const [showSignout, setShowSignout] = useState(false);
   
     useEffect(() => {
       const timer = setTimeout(() => {
@@ -76,43 +66,6 @@ function Navbar( {homeRef, workRef, aboutusRef, featuresRef, faqRef, setLoggingI
       animate={{scale:1, opacity:1}}
         transition={{duration:1.5,delay:2, ease:'easeInOut'}}
       >
-        {
-          user ? ( <div><button 
-            onClick={()=> setShowSignout(true)}
-            className=' text-[#E6EDF3] bg-[#3B82F6] px-2 py-3 rounded-2xl ml-[150px] mr-10 cursor-pointer  text-center font-bold items-center text-sm'
-            >signOut</button>
-            <Link 
-            to={'./Login'}
-            className='text-white text-2xl hover:scale-110 transition-transform absolute top-5 right-35 bg-white/10 backdrop-blur-2xl rounded-full h-12 w-12 flex items-center justify-center'><i class="fa-solid fa-user"></i></Link></div>
-        )
-          : (<Link 
-          to={'./Login'}
-          className=' text-[#E6EDF3] bg-[#3B82F6] px-2 py-3 rounded-2xl ml-[100px] mr-10 cursor-pointer  text-center font-bold items-center text-sm'
-          >login/register</Link>
-          )
-
-
-        }
-
-        {
-          showSignout ? (
-          <div className='w-54 p-2 top-18 right-0 h-28 fixed bg-white rounded-2xl shadow-xl'>
-            <div className=''></div>
-            <p className='text-sm '> Are You Sure you want to sign out</p> 
-            <div className='flex justify-center gap-3 pt-4'>
-            <button onClick={() => {
-              eventHandler(),
-              setShowSignout(false)
-            }
-          }
-            className='text-sm px-3 py-1 rounded-2xl  bg-[#3B82F6]'>Yes</button>
-            <button 
-            className='text-sm px-4 py-1 rounded-2xl  bg-[#3B82F6]' 
-            onClick={()=>setShowSignout(false)}>No</button>
-            </div>
-          </div>
-          ) : (<div> </div>)
-        }
       </motion.div>
     </motion.div>
   );
