@@ -46,7 +46,7 @@ const Chatbot = () => {
         setTimeout(() => {
             setMessages(prev => [...prev, { role: 'bot', text: "❌ I can only answer questions related to finance and stock related" }]);
             setIsThinking(false);
-        }, 600);
+        }, 500);
         return;
     }
 
