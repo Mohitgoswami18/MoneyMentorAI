@@ -67,7 +67,6 @@ function App() {
         </div>        
         <div id='homeRef' ref={homeRef}><HeroSection />
         </div>
-
       </div>
 
       <motion.button
@@ -101,6 +100,7 @@ function App() {
         <div ref={faqRef} id='faqRef'><FAQSection /></div>
         <div id='aboutusRef' ref={aboutusRef}><Footer /></div>
       </div>
+      <Chatbot />
     </div>
   )
 }
