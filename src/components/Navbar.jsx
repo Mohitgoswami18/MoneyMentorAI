@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import MMLogo from '../assets/icons/MMLogo.png'
+import News from './News';
 
 const scroll = ( ref ) => {
   ref.current.scrollIntoView({behavior:'smooth'});
@@ -11,6 +12,7 @@ const scroll = ( ref ) => {
 function Navbar( {homeRef, workRef, aboutusRef, featuresRef, faqRef} ) {
 
     const [isMoved, setIsMoved] = useState(false);
+    const [showNews, setShowNews] = useState(false);
   
     useEffect(() => {
       const timer = setTimeout(() => {
@@ -57,7 +59,7 @@ function Navbar( {homeRef, workRef, aboutusRef, featuresRef, faqRef} ) {
             <li className='m-4 hover:scale-110 transition-transform font-semibold cursor-pointer hover:underline' onClick={()=>scroll(workRef)} >Work Flow</li>
             <li className='m-4 hover:scale-110 transition-transform font-semibold cursor-pointer hover:underline' onClick={()=>scroll(faqRef)} >FAQ'S</li>
             <li className='m-4 hover:scale-110 transition-transform font-semibold cursor-pointer hover:underline' onClick={()=>scroll(aboutusRef)} >AboutUs</li>
-            <li className='m-4 hover:scale-110 transition-transform mr-14 font-semibold cursor-pointer hover:underline'>News</li>
+            <li className='m-4 hover:scale-110 transition-transform mr-14 font-semibold cursor-pointer hover:underline' onClick={() => setShowNews(true)}>News</li>
           </ul>
         </div>
       </motion.div>
@@ -67,6 +69,9 @@ function Navbar( {homeRef, workRef, aboutusRef, featuresRef, faqRef} ) {
         transition={{duration:1.5,delay:2, ease:'easeInOut'}}
       >
       </motion.div>
+      <AnimatePresence>
+        {showNews && <News onClose={() => setShowNews(false)} />}
+      </AnimatePresence>
     </motion.div>
   );
 }

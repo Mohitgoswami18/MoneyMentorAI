@@ -10,7 +10,7 @@ import { useRef, useState, useEffect } from 'react';
 import { motion } from "framer-motion";
 import { NavLink, Routes, Route } from 'react-router-dom';
 import Chatbot from './components/Chatbot';
-// import News from './components/News.jsx';
+import News from './components/News.jsx';
 
 function App() {
 
@@ -40,6 +40,7 @@ function App() {
   const aboutusRef = useRef(null);
   const featuresRef = useRef(null);
   const faqRef = useRef(null);
+  const marketNewsRef = useRef(null);
 
   const cursor = {
       position: 'fixed',
