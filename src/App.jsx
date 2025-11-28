@@ -55,7 +55,7 @@ function App() {
       opacity: 1,
       filter: 'blur(80px)',
       pointerEvents: 'none',
-      transition: 'top 0.05s linear, left 0.05s linear',
+      transition: 'top 0.03s linear, left 0.03s linear',
   }
 
   const [chatBotEnabled, setChatBotEnabled] = useState(false);
